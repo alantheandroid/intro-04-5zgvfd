@@ -19,3 +19,23 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: var(--text-primary);
 }
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 1024px;
+  height: 200px;
+  border: 1px solid aqua;
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
