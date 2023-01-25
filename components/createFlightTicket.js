@@ -1,6 +1,7 @@
-import createBookButton from './ticket/createBookButton';
+import createPriceSection from './ticket/createPriceSection';
+import createFlightInfo from "./ticket/createFlightInfo"
 
-export default function createFlightTicket() {
+export default function createFlightTicket(flight) {
   const flightTicket = document.createElement('div');
   flightTicket.className = 'flightTicket';
 
@@ -8,22 +9,19 @@ export default function createFlightTicket() {
   ticketBody.className = 'ticketBody';
   flightTicket.appendChild(ticketBody);
 
+  const ticketFooter = document.createElement('div');
+  ticketFooter.className = 'ticketFooter';
+  flightTicket.appendChild(ticketFooter);
+
   // add companyInfo
   const companyInfo = document.createElement('div');
   companyInfo.className = 'companyInfo';
-  flightTicket.appendChild(companyInfo);
+  ticketBody.appendChild(companyInfo);
 
-  // add flightInfo
-  const flightInfo = document.createElement('div');
-  flightInfo.className = 'flightInfo';
-  flightTicket.appendChild(flightInfo);
+  ticketBody.appendChild(createFlightInfo(flight));
 
   // add priceSection
-  const priceSection = document.createElement('div');
-  priceSection.className = 'priceSection';
-  flightTicket.appendChild(priceSection);
-
-  priceSection.appendChild(createBookButton());
+  ticketBody.appendChild(createPriceSection(flight));
 
   return flightTicket;
 }
